@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT JavaScript 1</title>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    <input type="button" value="Soal 1" onclick="kalkulatorSederhana()">
+
+    <h1>Inputan Tidak Terduplikasi</h1>
+    <input type="button" value="Soal 2" onclick="displayMobil()">
+</body>
+</html>
+
+<script>
+    function kalkulatorSederhana() {
+        let num1, num2, n;
+
+        do {
+            num1 = prompt("Masukkan angka pertama:");
+            num1 = parseInt(num1);
+            if (isNaN(num1)) {
+                alert("Input bukan merupakan integer, silahkan input ulang!!");
+            }
+        } while (isNaN(num1));
+            do {
+                num2 = prompt("Masukkan angka kedua:");
+                num2 = parseInt(num2);
+                if (isNaN(num2)) {
+                    alert("Input bukan merupakan integer, silahkan input ulang!!");
+                }
+            } while (isNaN(num2));
+                do {
+                    n = prompt("Masukkan operasi (+, -, *, /):");
+                    if (!['+', '-', '*', '/'].includes(n)) {
+                        alert("Maaf, tipe operasi tidak tersedia.");
+                    }
+                } while (!['+', '-', '*', '/'].includes(n));
+
+        let hasil;
+
+        switch (n) {
+            case '+':
+                hasil = num1 + num2;
+                break;
+                case '-':
+                    hasil = num1 - num2;
+                    break;
+                    case '*':
+                        hasil = num1 * num2;
+                        break;
+        }
+
+        alert("Hasil: " + hasil);
+    }
+
+    function displayMobil() {
+        var mobil = ["Toyota", "Honda", "Toyota", "Nissan", "Tesla", "Honda", "Ford"];
+
+        if (mobil.length === 0) {
+            console.log("Array Kosong!");
+            return;
+        }
+        var Terduplikasi = hapus(mobil);
+        console.log(Terduplikasi);
+    }
+
+    function hapus(array) {
+        var arrayyy = [];
+
+        array.forEach(function(car) {
+            if (!arrayyy.includes(car)) {
+                arrayyy.push(car);
+            }
+        });
+
+        return arrayyy.sort();
+    }
+</script>
+
+
